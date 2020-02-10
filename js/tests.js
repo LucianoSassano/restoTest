@@ -1,6 +1,7 @@
 const expect = chai.expect;
 var resto = new Restaurant();
 resto = listadoDeRestaurantes[0];
+var lista = new Listado();
 var lista = listadoDeRestaurantes;
 
 describe("elimina el horario que se le pasa por parametro", () => {
@@ -35,13 +36,23 @@ describe("Obtiene la puntuacion de un restaurant a partir del promedio de sus ca
   });
 
   it("Si no posee califiaciones devuelve una puntuacion de cero", () => {
-    console.log(resto.calificaciones);
     resto.calificaciones.splice(0, 5);
-    console.log(resto.calificaciones);
-
     const sinPuntuacion = resto.obtenerPuntuacion();
-    console.log(sinPuntuacion);
-
     expect(sinPuntuacion).to.be.equal(0);
   });
 });
+
+/*describe("Obtiene los restaurantes que cumplan con los filtros impuestos", () => {
+  it("Debe devolver uno o mas restos si cumplen las condiciones", () => {
+    let lista3 = new Listado();
+    console.log(lista3);
+    lista3 = listadoDeRestaurantes;
+    console.log(lista3);
+
+    const filteredRestos = lista3.obtenerRestaurantes(
+      "Hamburguesa",
+      "Nueva York",
+      "17:00"
+    );
+  });
+});*/
