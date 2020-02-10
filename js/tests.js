@@ -1,11 +1,7 @@
 const expect = chai.expect;
+var resto = new Restaurant();
 resto = listadoDeRestaurantes[0];
 var lista = listadoDeRestaurantes;
-
-console.log(resto);
-console.log(resto.horarios);
-
-//console.log(lista);
 
 describe("elimina el horario que se le pasa por parametro", () => {
   it("Al pasar 13:00 debe eliminarlo de los horarios disponibles", () => {
@@ -26,9 +22,26 @@ describe("elimina el horario que se le pasa por parametro", () => {
 
   it("Al no pasar ningun horario debe permanecer igual ", () => {
     //al comenzar el array tiene 2 horarios disponibles
-    console.log(resto.horarios);
     const noDisponible = resto.reservarHorario();
     parseInt(noDisponible);
     expect(noDisponible.length).to.be.equal(2);
+  });
+});
+
+describe("Obtiene la puntuacion de un restaurant a partir del promedio de sus califiaciones", () => {
+  it("El promedio debe ser la suma de las califiaciones dividido la cantidad de califiaciones", () => {
+    const promPuntuacion = resto.obtenerPuntuacion();
+    expect(promPuntuacion).to.be.equal(7.4);
+  });
+
+  it("Si no posee califiaciones devuelve una puntuacion de cero", () => {
+    console.log(resto.calificaciones);
+    resto.calificaciones.splice(0, 5);
+    console.log(resto.calificaciones);
+
+    const sinPuntuacion = resto.obtenerPuntuacion();
+    console.log(sinPuntuacion);
+
+    expect(sinPuntuacion).to.be.equal(0);
   });
 });
