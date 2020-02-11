@@ -32,12 +32,18 @@ describe("elimina el horario que se le pasa por parametro", () => {
 describe("Obtiene la puntuacion de un restaurant a partir del promedio de sus califiaciones", () => {
   it("El promedio debe ser la suma de las califiaciones dividido la cantidad de califiaciones", () => {
     const promPuntuacion = resto.obtenerPuntuacion();
+    console.log(promPuntuacion);
+    
     expect(promPuntuacion).to.be.equal(7.4);
   });
 
   it("Si no posee califiaciones devuelve una puntuacion de cero", () => {
-    resto.calificaciones.splice(0, 5);
+    resto.calificaciones.splice(0, resto.calificaciones.length);    
+    console.log(resto.calificaciones);
+    
     const sinPuntuacion = resto.obtenerPuntuacion();
+    console.log(sinPuntuacion);
+    
     expect(sinPuntuacion).to.be.equal(0);
   });
 });
@@ -56,3 +62,5 @@ describe("Obtiene la puntuacion de un restaurant a partir del promedio de sus ca
     );
   });
 });*/
+
+
